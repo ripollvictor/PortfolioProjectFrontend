@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Portfolio Project
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex justify-center items-center h-screen">
+    <div *ngIf="isLoading">
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <div *ngIf="!isLoading">
+      <div *ngIf="existsPortfolio; else noPortfolio">
+        <h2>Portfolio Content</h2>
+      </div>
+
+      <ng-template #noPortfolio>
+        <div class="flex flex-col items-center">
+          <h1 class="mb-4 text-xl">Para empezar necesitaremos crear un portafolio</h1>
+          <div class="flex flex-col items-center mb-4">
+            <ion-icon name="arrow-down" class="mr-2 mb-4"></ion-icon>
+            <ion-button (click)="createPortfolio()" expand="full">
+              Crear Portafolio
+            </ion-button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</ion-content>

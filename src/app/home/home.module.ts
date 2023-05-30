@@ -3,17 +3,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { TabsPageRoutingModule } from './tabs-routing.module';
+import {HomeRoutingModule} from './home-routing.module';
 
-import { TabsPage } from './tabs.page';
+import { HomePage } from './home.page';
+import {RouterLink} from "@angular/router";
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    TabsPageRoutingModule
+    HomeRoutingModule,
+    RouterLink
   ],
-  declarations: [TabsPage]
+  declarations: [HomePage]
 })
 export class TabsPageModule {}
