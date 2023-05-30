@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-list-header class="text-2xl">
+    Lista de Asignaciones
+  </ion-list-header>
+  <ion-item *ngFor="let allocation of allocations">
+    <ion-avatar slot="start">
+      <ion-icon name="chevron-forward-outline" class="w-full h-full"></ion-icon>
+    </ion-avatar>
+    <h2>Allocation {{ allocation.id }}</h2>
+    <ion-badge slot="end">{{ allocation.shares }} shares</ion-badge>
+  </ion-item>
+</ion-list>
+

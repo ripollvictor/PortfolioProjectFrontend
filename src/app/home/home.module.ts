@@ -7,6 +7,7 @@ import {HomeRoutingModule} from './home-routing.module';
 
 import { HomePage } from './home.page';
 import {RouterLink} from "@angular/router";
+import {AllocationListComponent} from "../allocation-list/allocation-list.component";
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import {RouterLink} from "@angular/router";
     HomeRoutingModule,
     RouterLink
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, AllocationListComponent]
 })
-export class TabsPageModule {}
+export class HomePageModule {}
