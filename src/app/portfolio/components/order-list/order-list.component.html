@@ -1,0 +1,42 @@
+<div>
+  <ion-list>
+    <ion-list-header class="text-2xl">
+      Lista de ordenes del portafolio
+    </ion-list-header>
+    <ion-item *ngFor="let orders of orders" class="card w-full">
+      <div class="card1 w-full">
+        <p>Orden</p>
+        <p class="small">{{ orders.id }}</p>
+        <ion-badge class="mt-1">{{ orders.shares }} shares</ion-badge>
+      </div>
+    </ion-item>
+    <ion-item *ngIf="orders.length < 1" class="h-12">No hay ordenes</ion-item>
+  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crear orden de compra</ion-card-title>
+      <ion-card-subtitle>
+        Selecciona una asignación
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-input [(ngModel)]="buyInput" label="Añadir ID de asignación" labelPlacement="floating" placeholder="ID asignación"></ion-input>
+      <ion-button (click)="createOrder('buy')">Crear</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crear orden de venta</ion-card-title>
+      <ion-card-subtitle>
+        Selecciona una asignación
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-input [(ngModel)]="sellInput" label="Añadir ID de asignación" labelPlacement="floating" placeholder="ID asignación"></ion-input>
+      <ion-button (click)="createOrder('sell')">Crear</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Allocation} from "../../domain/model/portfolio.model";
+import {Allocation} from "../../../../domain/model/portfolio.model";
 
 @Component({
   selector: 'app-allocation-list',

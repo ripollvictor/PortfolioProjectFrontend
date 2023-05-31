@@ -1,0 +1,17 @@
+<ion-list>
+  <ion-list-header class="text-2xl">
+    Lista de Portafolios
+  </ion-list-header>
+  <ion-item *ngFor="let portfolio of portfolios" class="card w-full">
+      <div class="card1 w-full cursor-pointer" [routerLink]="['/portfolio', portfolio.id]">
+        <p>Portfolio</p>
+        <p class="small">{{ portfolio.id }}</p>
+        <ion-badge class="mt-1">{{ portfolio.allocations.length }} asignaciones</ion-badge>
+        <div class="go-corner" href="#">
+          <div class="go-arrow">
+            →
+          </div>
+        </div>
+      </div>
+  </ion-item>
+</ion-list>

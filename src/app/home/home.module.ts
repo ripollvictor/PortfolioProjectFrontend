@@ -7,7 +7,10 @@ import {HomeRoutingModule} from './home-routing.module';
 
 import { HomePage } from './home.page';
 import {RouterLink} from "@angular/router";
-import {AllocationListComponent} from "../allocation-list/allocation-list.component";
+import {AllocationListComponent} from "../portfolio/components/allocation-list/allocation-list.component";
+import {PortfolioListComponent} from "./components/portfolio-list/portfolio-list.component";
+import {PortfolioPage} from "../portfolio/portfolio.page";
+import {OrderListComponent} from "../portfolio/components/order-list/order-list.component";
 
 @NgModule({
   imports: [
@@ -17,6 +20,9 @@ import {AllocationListComponent} from "../allocation-list/allocation-list.compon
     HomeRoutingModule,
     RouterLink
   ],
-  declarations: [HomePage, AllocationListComponent]
+  exports: [
+    OrderListComponent
+  ],
+  declarations: [HomePage, AllocationListComponent, PortfolioListComponent, PortfolioPage, OrderListComponent]
 })
 export class HomePageModule {}

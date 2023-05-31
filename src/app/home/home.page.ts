@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {PortfolioApiService} from "../../domain/service/api/portfolio.api";
 import {uuid} from "../../domain/function/uuid.helper";
-import {Allocation, Portfolio} from "../../domain/model/portfolio.model";
+import {Portfolio} from "../../domain/model/portfolio.model";
 
 @Component({
   selector: 'app-home',
@@ -11,8 +11,7 @@ import {Allocation, Portfolio} from "../../domain/model/portfolio.model";
 export class HomePage {
   existsPortfolio: boolean = false;
   isLoading: boolean = true;
-  portfolio: Portfolio | null = null;
-  allocations: Allocation[] = [];
+  portfolios: Portfolio[] = [];
 
   constructor(private api: PortfolioApiService) {
   }
@@ -24,15 +23,11 @@ export class HomePage {
   async checkPortfolioExistence() {
     const portfolios = await this.api.fetchPortfolios();
     this.existsPortfolio = portfolios.length > 0;
-    this.portfolio = portfolios.length > 0 ? portfolios[0] : null;
-    this.allocations = this.portfolio?.allocations ? this.portfolio.allocations : [];
+    this.portfolios = portfolios;
     this.isLoading = false;
   }
 
   async createPortfolio(): Promise<void> {
-    const portfolios = await this.api.fetchPortfolios();
-    console.log(portfolios);
-
     await this.api.createPortfolio({id: uuid()})
   }
 }

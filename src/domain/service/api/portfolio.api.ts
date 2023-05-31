@@ -10,7 +10,6 @@ import {Portfolio} from "../../model/portfolio.model";
 export class PortfolioApiService {
 
   private apiUrl = 'http://localhost:1100/api/v1/portfolios';
-  private urlGetPortfolios = 'http://localhost:1100/api/v1/portfolios';
 
   constructor(private http: HttpClient) {
   }
@@ -22,8 +21,14 @@ export class PortfolioApiService {
   }
 
   async fetchPortfolios(): Promise<Portfolio[]> {
-    return (await (firstValueFrom(this.http.get<any>(this.urlGetPortfolios).pipe(
+    return (await (firstValueFrom(this.http.get<any>(this.apiUrl).pipe(
       catchError((error: any) => throwError(error)))
     ))) as Portfolio[];
+  }
+
+  async fetchPortfolio(id: string): Promise<Portfolio> {
+    return (await (firstValueFrom(this.http.get<any>(this.apiUrl + '/' + id).pipe(
+      catchError((error: any) => throwError(error)))
+    ))) as Portfolio;
   }
 }
